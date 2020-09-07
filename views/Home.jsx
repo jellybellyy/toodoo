@@ -3,6 +3,9 @@ import React, { Component } from "react";
 class Home extends Component {
 
     render() {
+
+        let error = this.props[0];
+
         return (
             <div>
                 <h1>TOODOO</h1>
@@ -14,6 +17,10 @@ class Home extends Component {
                 <form method='GET' action='/register'>
                     <input type='submit' value='register' />
                 </form>
+
+                <div>
+                    {error}
+                </div>
             </div>
         );
     }

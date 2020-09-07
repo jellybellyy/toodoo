@@ -13,7 +13,7 @@ class User extends Component {
                     {/* <input type='checkbox'/>
                     <p key={index}>{item.task}</p> */}
                     <input type="checkbox" id={index} name={index}/>
-                    <label for={index}>{item.task}</label>
+                    <label htmlFor={index}>{item.task}</label>
                 </div>
             )
         })

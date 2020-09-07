@@ -30,10 +30,11 @@ const setRoutesFunction = require("./routes");
 
 setRoutesFunction(app, allModels);
 
-// LISTENING TO REQUESTS ON PORT 3000
-const server = app.listen(3000, () =>
-    console.log("~~~ Tuning in to the waves of port 3000 ~~~")
-);
+// LISTENING TO SERVER
+const PORT = process.env.PORT || 3000;
+
+const server = app.listen(PORT, () => console.log('~~~ Tuning in to the waves of port ' + PORT + ' ~~~'));
+
 
 let onClose = function () {
     console.log("closing");

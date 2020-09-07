@@ -66,10 +66,14 @@ module.exports = (db) => {
             }
             else {
                 if (result == 'wrong username') {
-                    res.send('user not found!');
+                    // res.send('user not found!');
+                    let error = ['User not found!'];
+                    res.render('Login', error);
                 }
                 else if (result == 'wrong password') {
-                    res.send('incorrect password!');
+                    // res.send('wrong password!');
+                    let error = ['Wrong Password!'];
+                    res.render('Login', error);
                 }
                 else {
                     res.cookie("username", result.rows[0].username);
