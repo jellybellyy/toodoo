@@ -1,3 +1,6 @@
+INSERT INTO users (first_name, last_name, username, password) VALUES ('JOHN', 'SMITH', 'jsmith', '2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824513945a8fefddcef6b2f4a7257017ee74aa648b46410f3bb61aaac20083570b4');
+INSERT INTO users (first_name, last_name, username, password) VALUES ('HARRY', 'POTTER', 'hpotter', '5e793a946e316b581728ec808ce78584719cd23f824b2ac028042f87caf28554513945a8fefddcef6b2f4a7257017ee74aa648b46410f3bb61aaac20083570b4');
+
 INSERT INTO todolist (task, user_id) VALUES ('do laundry', 1);
 INSERT INTO todolist (task, user_id) VALUES ('cook dinner', 1);
 INSERT INTO todolist (task, user_id) VALUES ('wash dishes', 1);
