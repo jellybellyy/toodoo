@@ -20,8 +20,14 @@ class Register extends Component {
               <button type="reset">reset</button>
             </form>
 
-            <h4><a href="http://localhost:3000/login">Already have an account?</a></h4>
-            <h4><a href='http://localhost:3000'>Home</a></h4>
+            <h4>
+              <a href="https://toodoo-todolist.herokuapp.com/login">
+                Already have an account?
+              </a>
+            </h4>
+            <h4>
+              <a href="/">Home</a>
+            </h4>
           </div>
         );
     }

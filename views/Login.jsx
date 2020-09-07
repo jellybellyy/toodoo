@@ -23,8 +23,14 @@ class Login extends Component {
               {error}
             </div>
 
-            <h4><a href="http://localhost:3000/register">Don't have an account yet?</a></h4>
-            <h4><a href="http://localhost:3000">Home</a></h4>
+            <h4>
+              <a href="https://toodoo-todolist.herokuapp.com/register">
+                Don't have an account yet?
+              </a>
+            </h4>
+            <h4>
+              <a href="/">Home</a>
+            </h4>
           </div>
         );
     }
