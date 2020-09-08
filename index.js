@@ -13,6 +13,8 @@ app.use(
     })
 );
 
+app.use(express.static("public"));
+
 // reads the cookies
 app.use(cookieParser());
 

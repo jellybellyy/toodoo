@@ -1,38 +1,52 @@
 module.exports = (db) => {
+  let userTasks = (req, res) => {
+    let id = req.cookies.user_id;
 
-    let userTasks = (req, res) => {
+    db.todolist.getUserTasks(id, (err, result) => {
+      if (err) {
+        console.log("error at todolist_controller, userTasks ---", err.message);
+      } else {
+        if (result.rows.length === 0) {
+          res.render("NewUser", result);
+        } else {
+          res.render("User", result);
+        }
+      }
+    });
+  };
 
-        let id = req.cookies.user_id;
+  let addTask = (req, res) => {
+    let username = req.cookies.username;
+    let user_id = req.cookies.user_id;
+    let task = req.body.task;
 
-        db.todolist.getUserTasks(id, (err, result) => {
-            if (err) {
-                console.log(
-                    'error at todolist_controller, userTasks ---', err.message);
-            } else {
-                res.render('User', result);
-            }
-        });
-    };
+    db.todolist.getAddTask(user_id, task, (err, result) => {
+      if (err) {
+        console.log("error at todolist_controller, addTask ---", err.message);
+      } else {
+        res.redirect(`/user/${username}`);
+      }
+    });
+  };
 
-    let addTask = (req, res) => {
+  //     let completion = (req, res) => {
 
-        let username = req.cookies.username;
-        let user_id = req.cookies.user_id;
-        let task = req.body.task;
+  //     console.log("hi");
 
-        db.todolist.getAddTask(user_id, task, (err, result) => {
-            if (err) {
-                console.log('error at todolist_controller, addTask ---', err.message);
-            }
-            else {
-                res.redirect(`/user/${username}`)
-            }
-        })
-            
-    }
+  //     db.todolist.getCompletion((err, result) => {
+  //       if (err) {
+  //         console.log(
+  //           "error at todolist_controller, completion ---",
+  //           err.message
+  //         );
+  //       } else {
+  //         console.log(req.body);
+  //       }
+  //     });
+  //   };
 
-    return {
-        userTasks,
-        addTask
-    };
+  return {
+    userTasks,
+    addTask,
+  };
 };

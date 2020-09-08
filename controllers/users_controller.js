@@ -31,7 +31,7 @@ module.exports = (db) => {
         let username = req.body.username;
         let password = req.body.password;
         
-        password = sha256(password) + sha256(SALT);
+        password = sha256(password + SALT);
 
         db.users.getNewUser(first_name, last_name, username, password, (err, result) => {
             if (err) {
@@ -58,7 +58,7 @@ module.exports = (db) => {
         let password = req.body.password;
 
         // hashing password
-        password = sha256(password) + sha256(SALT);
+        password = sha256(password + SALT);
 
         db.users.getVerifyInfo(username, password, (err, result) => {
             if (err) {

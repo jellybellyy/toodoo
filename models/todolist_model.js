@@ -1,36 +1,44 @@
 module.exports = (dbPoolInstance) => {
+  let getUserTasks = (id, callback) => {
+    let text = `SELECT users.*, todolist.*  FROM users JOIN todolist ON users.id = todolist.user_id WHERE user_id = '${id}'`;
 
-    let getUserTasks = (id, callback) => {
-        let text = `SELECT users.*, todolist.*  FROM users JOIN todolist ON users.id = todolist.user_id WHERE user_id = '${id}'`;
+    dbPoolInstance.query(text, (err, result) => {
+      if (err) {
+        console.log("error at todolist_model, getUserTasks ---", err.message);
+        callback(null, null);
+      } else {
+        callback(null, result);
+      }
+    });
+  };
 
-        dbPoolInstance.query(text, (err, result) => {
-            if (err) {
-                console.log('error at todolist_model, getUserTasks ---', err.message);
-                callback(null, null);
-            }
-            else {
-                callback(null, result);
-            }
-        });
-    };
+  let getAddTask = (user_id, task, callback) => {
+    let text = `INSERT INTO todolist (task, completed, user_id) VALUES ('${task}', 'false', '${user_id}') RETURNING *`;
 
-    let getAddTask = (user_id, task, callback) => {
+    dbPoolInstance.query(text, (err, result) => {
+      if (err) {
+        console.log("error at todolist_model, getAddTask", err.message);
+        callback(null, null);
+      } else {
+        callback(null, result);
+      }
+    });
+  };
 
-        let text = `INSERT INTO todolist (task, user_id) VALUES ('${task}', '${user_id}') RETURNING *`
+  //   let getCompletion = (callback) => {
+  //     let text = `UPDATE todolist SET completion = ? WHERE id = `;
 
-        dbPoolInstance.query(text, (err, result) => {
-            if (err) {
-                console.log('error at todolist_model, getAddTask', err.message);
-                callback(null, null);
-            }
-            else {
-                callback(null, result);
-            }
-        })
-    }
+  //     dbPoolInstance.query(text, (err, result) => {
+  //       if (err) {
+  //         console.log("error at todolist_model, getCompletion", err.message);
+  //       } else {
+  //         callback(null, result);
+  //       }
+  //     });
+  //   };
 
-    return {
-        getUserTasks,
-        getAddTask
-    };
+  return {
+    getUserTasks,
+    getAddTask,
+  };
 };
