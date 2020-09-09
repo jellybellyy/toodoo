@@ -29,22 +29,6 @@ module.exports = (db) => {
     });
   };
 
-  //     let completion = (req, res) => {
-
-  //     console.log("hi");
-
-  //     db.todolist.getCompletion((err, result) => {
-  //       if (err) {
-  //         console.log(
-  //           "error at todolist_controller, completion ---",
-  //           err.message
-  //         );
-  //       } else {
-  //         console.log(req.body);
-  //       }
-  //     });
-  //   };
-
   return {
     userTasks,
     addTask,

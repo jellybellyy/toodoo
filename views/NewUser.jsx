@@ -35,7 +35,7 @@ export class NewUser extends Component {
               <h2>Let's get you started by keying in your first task!</h2>
 
               <form method="POST" action="/user/:username">
-                <input type="text" name="task" />
+                <input type="text" name="task" required />
                 <button className="btn btn-outline-light btn-sm">+</button>
               </form>
             </div>

@@ -25,18 +25,6 @@ module.exports = (dbPoolInstance) => {
     });
   };
 
-  //   let getCompletion = (callback) => {
-  //     let text = `UPDATE todolist SET completion = ? WHERE id = `;
-
-  //     dbPoolInstance.query(text, (err, result) => {
-  //       if (err) {
-  //         console.log("error at todolist_model, getCompletion", err.message);
-  //       } else {
-  //         callback(null, result);
-  //       }
-  //     });
-  //   };
-
   return {
     getUserTasks,
     getAddTask,

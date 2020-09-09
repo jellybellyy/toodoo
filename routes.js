@@ -16,5 +16,4 @@ module.exports = (app, allModels) => {
 
   app.get("/user/:username", todolistControllerCallback.userTasks);
   app.post("/user/:username", todolistControllerCallback.addTask);
-  //   app.post("/user/:username/completion", todolistControllerCallback.completion);
 };
