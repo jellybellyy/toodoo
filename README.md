@@ -1,5 +1,5 @@
 # TOODOO
-General Assembly SEI24 Project 2
+General Assembly WDI SEI-24 Project 2
 
 # Technologies Used
 * Node
